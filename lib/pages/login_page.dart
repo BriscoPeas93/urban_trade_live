@@ -93,6 +93,92 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w400),
                     textAlign: TextAlign.justify,
                   )),
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: SizedBox(
+                  height: 50,
+                  child: TextField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(243, 244, 246, 1),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(6),
+                          borderSide: BorderSide.none),
+                      hintText: "Adresse email",
+                      hintStyle: GoogleFonts.quicksand(
+                          fontSize: 14, fontWeight: FontWeight.normal),
+                      prefixIcon: const Icon(
+                        Icons.email_outlined,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: SizedBox(
+                  height: 50,
+                  child: TextField(
+                    obscureText: true,
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(243, 244, 246, 1),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(6),
+                          borderSide: BorderSide.none),
+                      hintText: "Mot de passe",
+                      hintStyle: GoogleFonts.quicksand(
+                          fontSize: 14, fontWeight: FontWeight.normal),
+                      prefixIcon: const Icon(
+                        Icons.lock_outlined,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Mot de passe oublié',
+                      style: GoogleFonts.quicksand(),
+                    )),
+              ),
+              OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.orangeAccent,
+                      backgroundColor: Colors.orangeAccent,
+                      side: const BorderSide(
+                          color: Colors.orangeAccent, width: 1)),
+                  onPressed: () {},
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    height: 50,
+                    child: Text(
+                      'Se connecter',
+                      style: GoogleFonts.quicksand(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              const Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Text("Vous n'avez pas de compte?"),
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "S'inscrire ici",
+                    style: GoogleFonts.quicksand(
+                        decoration: TextDecoration.underline),
+                  ))
             ],
           ),
         ),
