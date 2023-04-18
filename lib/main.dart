@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'pages/login_page.dart';
+import 'pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         'LoginPage': (BuildContext context) => const LoginPage(),
+        'RegisterPage': (BuildContext context) => const RegisterPage(),
       },
     );
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text_field.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -93,52 +96,15 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w400),
                     textAlign: TextAlign.justify,
                   )),
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color.fromRGBO(243, 244, 246, 1),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(6),
-                          borderSide: BorderSide.none),
-                      hintText: "Adresse email",
-                      hintStyle: GoogleFonts.quicksand(
-                          fontSize: 14, fontWeight: FontWeight.normal),
-                      prefixIcon: const Icon(
-                        Icons.email_outlined,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    obscureText: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color.fromRGBO(243, 244, 246, 1),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(6),
-                          borderSide: BorderSide.none),
-                      hintText: "Mot de passe",
-                      hintStyle: GoogleFonts.quicksand(
-                          fontSize: 14, fontWeight: FontWeight.normal),
-                      prefixIcon: const Icon(
-                        Icons.lock_outlined,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                ),
+              CustomTextField(
+                  textHint: "Adresse email ici",
+                  icon: Icons.mail_outline,
+                  inputType: TextInputType.emailAddress),
+              CustomTextField(
+                textHint: "Mot de passe",
+                icon: Icons.lock,
+                inputType: TextInputType.visiblePassword,
+                isPassWord: true,
               ),
               Align(
                 alignment: Alignment.topRight,
@@ -149,36 +115,56 @@ class _LoginPageState extends State<LoginPage> {
                       style: GoogleFonts.quicksand(),
                     )),
               ),
-              OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.orangeAccent,
-                      backgroundColor: Colors.orangeAccent,
-                      side: const BorderSide(
-                          color: Colors.orangeAccent, width: 1)),
-                  onPressed: () {},
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.center,
-                    height: 50,
-                    child: Text(
-                      'Se connecter',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )),
+
+              //mon button ici
+              CustomOutLinedButton(
+                borderColor: Colors.orangeAccent,
+                backgroundColor: Colors.orangeAccent,
+                textColor: Colors.white,
+                textButton: "Se connecter",
+                onTab: () {},
+              ),
+
               const Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: Text("Vous n'avez pas de compte?"),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        'RegisterPage', (route) => false);
+                  },
                   child: Text(
                     "S'inscrire ici",
                     style: GoogleFonts.quicksand(
                         decoration: TextDecoration.underline),
-                  ))
+                  )),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+              Text(
+                "En continuant, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.",
+                style: GoogleFonts.quicksand(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: const Color.fromRGBO(0, 0, 0, 0.5)),
+                textAlign: TextAlign.center,
+              ),
+              Center(
+                child: Container(
+                  height: 30,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Consulter les conditions ",
+                      style: GoogleFonts.quicksand(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
