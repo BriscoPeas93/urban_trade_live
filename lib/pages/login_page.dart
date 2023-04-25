@@ -122,7 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.orangeAccent,
                 textColor: Colors.white,
                 textButton: "Se connecter",
-                onTab: () {},
+                onTab: () {
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('AccueilPage', (route) => false);
+                },
               ),
 
               const Padding(

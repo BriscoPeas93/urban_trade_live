@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomOutLinedButton extends StatefulWidget {
-  CustomOutLinedButton({
+  const CustomOutLinedButton({
     Key? key,
     required this.textButton,
     required this.onTab,
@@ -31,7 +31,9 @@ class _CustomOutLinedButtonState extends State<CustomOutLinedButton> {
             foregroundColor: widget.backgroundColor,
             backgroundColor: widget.backgroundColor,
             side: BorderSide(color: widget.borderColor, width: 1)),
-        onPressed: widget.onTab(),
+        onPressed: () {
+          widget.onTab();
+        },
         child: Container(
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,

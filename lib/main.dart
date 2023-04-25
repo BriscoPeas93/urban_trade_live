@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 import 'pages/register_page.dart';
 
@@ -24,13 +25,14 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         'LoginPage': (BuildContext context) => const LoginPage(),
         'RegisterPage': (BuildContext context) => const RegisterPage(),
+        'AccueilPage': (BuildContext context) => const AccueilPage(),
       },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage();
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
