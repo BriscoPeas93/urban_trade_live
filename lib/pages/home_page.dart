@@ -2,6 +2,8 @@ import 'package:banner_carousel/banner_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/product_adaptor.dart';
+
 class AccueilPage extends StatefulWidget {
   const AccueilPage({Key? key}) : super(key: key);
 
@@ -93,9 +95,132 @@ class _AccueilPageState extends State<AccueilPage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   _cardCategory('assets/imgs/voiture.png', 'Voiture'),
+                  _cardCategory('assets/imgs/moto.png', 'Moto'),
+                  _cardCategory('assets/imgs/bicyclette.png', 'Vélo'),
+                  _cardCategory('assets/imgs/clothes.png', 'Habits'),
+                  _cardCategory('assets/imgs/cuisine.png', 'Cuisine'),
+                  _cardCategory('assets/imgs/ordinateur.png', 'Ordinateur'),
+                  _cardCategory('assets/imgs/frigo.png', 'Frigo'),
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, top: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Ajouts récent",
+                    style: GoogleFonts.quicksand(
+                        color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    "Sponsorisées",
+                    style: GoogleFonts.quicksand(
+                        color: Colors.black87,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ),
+            // Stack ici ...............
+
+            SizedBox(
+              height: 250,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  ProductAdaptor(
+                    libelle: "Kawazaki",
+                    img: "assets/products/moto-1.png",
+                    prix: 1700000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Samsung S23 Plus",
+                    img: "assets/products/phone-1.jpg",
+                    prix: 700000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Téléphone filaire",
+                    img: "assets/products/phone-3.jpg",
+                    prix: 250000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Peugeot 206",
+                    img: "assets/products/car-2.jpg",
+                    prix: 150000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Voiture rouge",
+                    img: "assets/products/car-1.jpg",
+                    prix: 1500000,
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, top: 15, bottom: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Annonces",
+                    style: GoogleFonts.quicksand(
+                        color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    "Sponsorisées",
+                    style: GoogleFonts.quicksand(
+                        color: Colors.black87,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ),
+
+            Wrap(
+              spacing: 10,
+              alignment: WrapAlignment.start,
+              children: const [
+                ProductAdaptor(
+                  libelle: "Peugeot 206",
+                  img: "assets/products/car-2.jpg",
+                  prix: 150000,
+                ),
+                ProductAdaptor(
+                  libelle: "Téléphone filaire",
+                  img: "assets/products/phone-3.jpg",
+                  prix: 250000,
+                ),
+                ProductAdaptor(
+                  libelle: "Voiture rouge",
+                  img: "assets/products/car-1.jpg",
+                  prix: 1500000,
+                ),
+                ProductAdaptor(
+                  libelle: "Kawazaki",
+                  img: "assets/products/moto-1.png",
+                  prix: 1700000,
+                ),
+                ProductAdaptor(
+                  libelle: "Samsung S23 Plus",
+                  img: "assets/products/phone-1.jpg",
+                  prix: 700000,
+                ),
+                ProductAdaptor(
+                  libelle: "iPhone 13 Pro",
+                  img: "assets/products/phone-3.png",
+                  prix: 700000,
+                ),
+              ],
+            )
           ],
         ),
       ),
