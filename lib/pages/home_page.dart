@@ -215,12 +215,55 @@ class _AccueilPageState extends State<AccueilPage> {
                   prix: 700000,
                 ),
                 ProductAdaptor(
-                  libelle: "iPhone 13 Pro",
+                  libelle: "iPhone 14 Pro",
                   img: "assets/products/phone-3.png",
                   prix: 700000,
                 ),
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, top: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Catégorie téléphone",
+                    style: GoogleFonts.quicksand(
+                        color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 250,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  ProductAdaptor(
+                    libelle: "Samsung S23 Plus",
+                    img: "assets/products/phone-1.jpg",
+                    prix: 700000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Téléphone filaire",
+                    img: "assets/products/phone-3.jpg",
+                    prix: 250000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "Téléphone chinois",
+                    img: "assets/products/phone-2.jpg",
+                    prix: 50000,
+                  ),
+                  ProductAdaptor(
+                    libelle: "iPhone 14 Pro Max",
+                    img: "assets/products/phone-3.png",
+                    prix: 450000,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
