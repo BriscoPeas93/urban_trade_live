@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:urban_trade/pages/product_details_page.dart';
 
 class ProductAdaptor extends StatelessWidget {
   const ProductAdaptor(
@@ -19,45 +20,59 @@ class ProductAdaptor extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             shadowColor: Colors.orangeAccent.withOpacity(0.2),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.45,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        img,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        height: 150,
-                        fit: BoxFit.cover,
-                        // color: Colors.orangeAccent,
-                      ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailPage(
+                      libelle: libelle,
+                      img: img,
+                      prix: prix,
                     ),
                   ),
-                  // const SizedBox(height: 5),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(libelle,
-                            style: GoogleFonts.quicksand(
-                                color: Colors.black54,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold)),
-                        Text("$prix CFA",
-                            style: GoogleFonts.quicksand(
-                                color: Colors.orangeAccent,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold)),
-                      ],
+                );
+              },
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.45,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          img,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: 150,
+                          fit: BoxFit.cover,
+                          // color: Colors.orangeAccent,
+                        ),
+                      ),
                     ),
-                  )
-                ],
+                    // const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(libelle,
+                              style: GoogleFonts.quicksand(
+                                  color: Colors.black54,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold)),
+                          Text("$prix CFA",
+                              style: GoogleFonts.quicksand(
+                                  color: Colors.orangeAccent,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             )),
         Positioned(
