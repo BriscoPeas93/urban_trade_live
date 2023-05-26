@@ -15,6 +15,58 @@ class _AccueilPageState extends State<AccueilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              height: 120,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                Colors.orangeAccent,
+                Colors.orangeAccent.withOpacity(0.3),
+                Colors.orangeAccent
+              ])),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
+                child: Row(
+                  children: [
+                    ClipOval(
+                      child: Container(
+                          color: Colors.white,
+                          child: const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.person),
+                            ),
+                          )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Nom et prenoms",
+                          style: GoogleFonts.quicksand(
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "00 00 00 00",
+                          style: GoogleFonts.quicksand(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:urban_trade/widgets/modals.dart';
 
+import '../controllers/customer_controller.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
@@ -97,10 +99,12 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.justify,
                   )),
               CustomTextField(
-                  textHint: "Adresse email ici",
-                  icon: Icons.mail_outline,
-                  inputType: TextInputType.emailAddress),
+                  controller: phone_controller,
+                  textHint: "Votre contact ici",
+                  icon: Icons.phone,
+                  inputType: TextInputType.phone),
               CustomTextField(
+                controller: password_controller,
                 textHint: "Mot de passe",
                 icon: Icons.lock,
                 inputType: TextInputType.visiblePassword,
@@ -123,8 +127,15 @@ class _LoginPageState extends State<LoginPage> {
                 textColor: Colors.white,
                 textButton: "Se connecter",
                 onTab: () {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('AccueilPage', (route) => false);
+                  if (phone_controller.text.isEmpty ||
+                      password_controller.text.isEmpty) {
+                    // afficher un toast
+                    Modal.showToast(context,
+                        'Merci de bien vouloir remplir tous les champs');
+                  } else {
+                    CustomerController().loginCustomer(context,
+                        phone_controller.text, password_controller.text);
+                  }
                 },
               ),
 
@@ -174,4 +185,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  TextEditingController phone_controller = TextEditingController();
+  TextEditingController password_controller = TextEditingController();
 }

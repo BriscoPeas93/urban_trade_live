@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
+  const CustomTextField(
       {Key? key,
       required this.textHint,
       required this.icon,
       required this.inputType,
-      this.isPassWord = false})
+      this.isPassWord = false,
+      required this.controller})
       : super(key: key);
 
   final String textHint;
   final IconData icon;
   final TextInputType inputType;
   final bool isPassWord;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class CustomTextField extends StatelessWidget {
       child: SizedBox(
         height: 50,
         child: TextField(
+          controller: controller,
           keyboardType: inputType,
           obscureText: isPassWord,
           decoration: InputDecoration(

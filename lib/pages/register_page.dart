@@ -324,4 +324,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+
+    TextEditingController phone_controller = TextEditingController();
+
 }
